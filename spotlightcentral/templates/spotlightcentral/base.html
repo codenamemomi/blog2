@@ -1,0 +1,79 @@
+{% load spotlightcentraltags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Spotlight Central{% endblock %}</title>
+        <link href="{% static 'css/spotlightcentral.css' %}" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Spotlight Central">
+        <meta name="keywords" content="spotlight, central, highlights">
+        <!-- Add Font Awesome for icons (optional) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- Header with Navigation Menu -->
+        <header>
+            <div class="container">
+                <h1>ENTERTAINIA</h1>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Highlights</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="/sitemap.xml">Sitemap</a></li>
+                    </ul>
+                    <div class="menu-toggle" id="mobile-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content and Sidebar Container -->
+        <div class="container main-container">
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <h5>SPOTLIGHTCENTRAL</h5>
+                <ul>
+                    {% block sidebar %}
+                    <p>
+                        <a href="{% url "spotlightcentral:post_feed" %}">Subscribe to my RSS feed</a>
+                    </p>
+                    <h6>HOT GIST</h6>
+                    {% show_hot_gist 4 %}
+                    <h6>Most commented posts</h6>
+                    {% get_most_commented_posts as most_commented_posts %}
+                    <ul>
+                        {% for post in most_commented_posts %}
+                        <li>
+                            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endblock %}
+                </ul>
+                <p>&copy; 2023 Spotlight Central</p>
+            </aside>
+
+            <!-- Main Content -->
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <!-- JavaScript for Mobile Menu Toggle -->
+        <script>
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navMenu = document.querySelector('.menu');
+
+            mobileMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        </script>
+    </body>
+</html>

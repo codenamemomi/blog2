@@ -1,0 +1,12 @@
+<ul>
+    {% for post in hot_gist %}
+    <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        {% if post.description %}
+            <p>{{ post.description }}</p>
+        {% endif %}
+    </li>
+    {% empty %}
+        <li>No latest gist available.</li>
+    {% endfor %}
+</ul>

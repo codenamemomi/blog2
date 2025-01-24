@@ -1,0 +1,15 @@
+{% extends "spotlightcentral/base.html" %}
+{% block title %}Add a comment{% endblock %}
+{% block content %}
+  {% if comment %}
+    <h2 class="success-message">Your comment has been added.</h2>
+    <p><a href="{{ post.get_absolute_url }}">Back to the post</a></p>
+  {% else %}
+    <div class="comment-form-container">
+      {% include "spotlightcentral/post/includes/comment_form.html" %}
+    </div>
+  {% endif %}
+  {% empty %}
+    <p>No comments available.</p>
+  {% endempty %}
+{% endblock %}

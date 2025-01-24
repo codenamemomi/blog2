@@ -1,0 +1,30 @@
+{% extends "spotlightcentral/base.html" %}
+{% block title %}Share a post{% endblock %}
+{% block content %}
+{% if sent %}
+  <div class="alert alert-success">
+    <h1>E-mail successfully sent</h1>
+    <p>
+      "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+    </p>
+  </div>
+{% else %}
+  <h1>Share "{{ post.title }}" by e-mail</h1>
+  <form method="post">
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        <h2>Form errors</h2>
+        <ul>
+          {% for field, errors in form.errors.items %}
+            <li>{{ field }}: {{ errors|join:", " }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Send E-mail">
+  </form>
+  <p class="text-muted"></p>
+{% endif %}
+{% endblock %}
