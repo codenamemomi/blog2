@@ -79,8 +79,10 @@ def post_share(request, post_id):
             post_url =request.build_absolute_uri(
                 post.get_absolute_url()
             )
+            name = cd['name']
+            email = cd['email']
             subject = (
-                f'{cd['name']} ({cd['email']}) '
+                f'{name}({email})) '
                 f'recommends you read {post.title}'
                 )
             message = (
