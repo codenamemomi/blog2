@@ -1,6 +1,6 @@
-<h2>Add a new comment</h2>
-<form action="{% url 'spotlightcentral:post_comment' post.id %}" method="post">
+<h2>Add a New Comment</h2>
+<form action="{% url 'spotlightcentral:post_comment' post.id %}" method="post" class="comment-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <p><input type="submit" value="Add comment"></p>
+    <p><input type="submit" value="Add Comment" class="button"></p>
 </form>

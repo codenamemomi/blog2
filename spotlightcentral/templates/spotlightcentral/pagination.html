@@ -1,23 +1,39 @@
 <div class="pagination">
     <span class="step-links">
         {% if page.has_previous %}
-            <a href="?page={{ page.previous_page_number }}" class="prev">Previous</a>
+            <a href="?page={{ page.previous_page_number }}" class="prev" aria-label="Previous Page">Previous</a>
         {% else %}
-            <span class="disabled prev">Previous</span>
-        {% endif %}
-        {% if page.has_next %}
-            <a href="?page={{ page.next_page_number }}" class="next">Next</a>
-        {% else %}
-            <span class="disabled next">Next</span>
+            <span class="disabled prev" aria-disabled="true">Previous</span>
         {% endif %}
     </span>
     <span class="page-numbers">
+        {% if page.number > 3 %}
+            <a href="?page=1" aria-label="Page 1">1</a>
+            {% if page.number > 4 %}
+                <span class="ellipsis">...</span>
+            {% endif %}
+        {% endif %}
         {% for i in page.paginator.page_range %}
-            {% if page.number == i %}
-                <span class="current-page">{{ i }}</span>
-            {% else %}
-                <a href="?page={{ i }}">{{ i }}</a>
+            {% if i >= page.number|add:'-2' and i <= page.number|add:'2' %}
+                {% if page.number == i %}
+                    <span class="current-page" aria-current="page">{{ i }}</span>
+                {% else %}
+                    <a href="?page={{ i }}" aria-label="Page {{ i }}">{{ i }}</a>
+                {% endif %}
             {% endif %}
         {% endfor %}
+        {% if page.number < page.paginator.num_pages|add:'-2' %}
+            {% if page.number < page.paginator.num_pages|add:'-3' %}
+                <span class="ellipsis">...</span>
+            {% endif %}
+            <a href="?page={{ page.paginator.num_pages }}" aria-label="Page {{ page.paginator.num_pages }}">{{ page.paginator.num_pages }}</a>
+        {% endif %}
+    </span>
+    <span class="step-links">
+        {% if page.has_next %}
+            <a href="?page={{ page.next_page_number }}" class="next" aria-label="Next Page">Next</a>
+        {% else %}
+            <span class="disabled next" aria-disabled="true">Next</span>
+        {% endif %}
     </span>
 </div>

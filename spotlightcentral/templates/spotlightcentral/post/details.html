@@ -7,9 +7,12 @@
     <p class="date">
       Published on: {{ post.publish|date:"d/m/Y" }} by {{ post.author }}
     </p>
+    {% if post.image %}
+      <img src="{{ post.image }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
+    {% endif %}
     {{ post.body|markdown|linebreaks }}
     <p>
-      <a href=" {% url 'spotlightcentral:post_share' post.id %}">
+      <a href="{% url 'spotlightcentral:post_share' post.id %}">
         Share this post
       </a>
     </p>
@@ -23,7 +26,7 @@
     {% endfor %}
     {% with comments.count as total_comments %}
     <h3>
-      {{ total_comments}} comment{{ total_comments|pluralize }}
+      {{ total_comments }} comment{{ total_comments|pluralize }}
     </h3>
     {% endwith %}
     {% for comment in comments %}
@@ -34,10 +37,9 @@
       </p>
       {{ comment.body|linebreaks }}
     </div>
-    {% empty%}
+    {% empty %}
     <p>There are no comments</p>
     {% endfor %}
     {% include 'spotlightcentral/post/extras/commenting.html' %}
   </article>
 {% endblock %}
-

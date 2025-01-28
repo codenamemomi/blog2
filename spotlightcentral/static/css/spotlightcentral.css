@@ -32,66 +32,54 @@ p {
     color: #333;
 }
 
-h1 {
-    font-weight: normal;
-    border-bottom: 2px solid #007acc; /* Blue color for border */
-    padding: 0 0 10px 0;
-    margin-bottom: 10px;
-    color: #007acc; /* Blue color for headings */
-    font-size: 55px; /* Set font size for headings */
+h2, h3, h4, h5, h6 {
     font-family: 'Helvetica', sans-serif; /* Set font family for headings */
-    font-style: oblique;
+    color: #007acc; /* Blue color for headings */
+    font-weight: normal;
+    margin: 30px 0 10px;
+}
+
+h1 {
+    font-size: 55px; /* Set font size for headings */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
+    color: #007acc; /* Blue color for headings */
+    font-weight: normal;
+    margin: 10px 0 1px;
 }
 
 h2 {
-    font-weight: normal;
-    margin: 30px 0 0;
-    color: #007acc; /* Blue color for subheading */
     font-size: 24px; /* Set font size for subheadings */
-    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
     font-style: italic;
 }
 
 h3 {
-    font-weight: normal;
-    margin: 30px 0 0;
-    color: #007acc; /* Blue color for subheading */
     font-size: 19px; /* Set font size for subheadings */
-    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
     font-style: italic;
     text-decoration: overline;
 }
 
 h4 {
-    font-weight: normal;
-    margin: 30px 0 0;
-    color: #007acc; /* Blue color for subheading */
     font-size: 19px; /* Set font size for subheadings */
-    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
     font-style: italic;
     text-decoration: underline;
 }
 
 h5 {
-    font-weight: normal;
+    font-size: 29px; /* Set font size for headings */
+    color: #333;
+    font-style: oblique;
     border-bottom: 2px solid #007acc; /* Blue color for border */
     padding: 0 0 10px 0;
     margin-bottom: 20px;
-    color: #333;
-    font-size: 29px; /* Set font size for headings */
-    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
-    font-style: oblique;
 }
 
 h6 {
-    font-weight: normal;
+    font-size: 22px; /* Set font size for headings */
+    color: #333;
+    font-style: oblique;
     border-bottom: 2px solid #007acc; /* Blue color for border */
     padding: 0 0 10px 0;
-    color: #333;
-    font-size: 22px; /* Set font size for headings */
-    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
-    font-style: oblique;
 }
 
 p.date {
@@ -111,13 +99,53 @@ p.date {
 
 /* Pagination */
 .pagination {
-    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.step-links {
+    margin-right: 20px;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.pagination a {
+    color: #007acc;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 5px;
+}
+
+.pagination a:hover {
+    background-color: #005b99;
+    color: #fff;
+}
+
+.pagination .current-page {
     font-weight: bold;
-    text-align: center;
-    color: #007acc; /* Blue color for pagination */
-    display: flex; /* Make pagination a flex container */
-    justify-content: center; /* Center pagination items */
-    font-size: 18px; /* Increase font size for pagination */
+    color: #007acc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination .ellipsis {
+    padding: 5px 10px;
+    color: #999;
 }
 
 #content {
@@ -200,11 +228,6 @@ a {
     position: relative;
 }
 
-a:hover {
-    color: #005b99;
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 a::after {
     content: '';
@@ -398,6 +421,69 @@ input[type="submit"]:focus {
     line-height: 1.5; /* Improve readability with line height */
 }
 
+/* Comment Section */
+.comment-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Success Message */
+.success-message {
+    color: #4CAF50;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Back Link */
+.back-link {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #005b99;
+}
+
+/* Comment Form Container */
+.comment-form-container {
+    margin-top: 20px;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form h2 {
+    font-size: 24px;
+    color: #007acc;
+    margin-bottom: 20px;
+}
+
+.comment-form input[type="submit"] {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #005b99;
+    transform: translateY(-2px);
+}
+
+.comment-form input[type="submit"]:active {
+    transform: translateY(0);
+}
+
 /* Responsive Design for Comments */
 @media (max-width: 768px) {
     .comments {
@@ -437,9 +523,21 @@ nav {
     align-items: center;
 }
 
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #333; /* Dark background for the logo */
+    color: #fff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+}
+
 .logo h1 {
-    font-size: 24px;
-    color: #ff6347; /* Tomato color for logo */
+    font-size: 36px; /* Adjust font size as needed */
+    font-weight: bold;
+    margin: 0;
+    color: #ff6347; /* Tomato color for the logo text */
 }
 
 .menu {
@@ -570,3 +668,68 @@ nav {
         padding: 10px;
     }
 }
+
+/* Container Class */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Container Class */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Post List */
+.post {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-title a {
+    color: #007acc;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+
+.tags {
+    font-size: 14px;
+}
+.tags a {
+    color: #007acc5f;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.tags a:hover {
+    color: #005b99;
+}
+
+.read-more {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: #005b99;
+    transform: translateY(-2px);
+}
+

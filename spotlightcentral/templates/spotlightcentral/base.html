@@ -16,7 +16,9 @@
         <!-- Header with Navigation Menu -->
         <header>
             <div class="container">
-                <h1>ENTERTAINIA</h1>
+                <div class="logo">
+                    <h1>ENTERTAINIA</h1>
+                </div>
                 <nav>
                     <ul class="menu">
                         <li><a href="/">Home</a></li>
@@ -25,7 +27,7 @@
                         <li><a href="#">Contact</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
                     </ul>
-                    <div class="menu-toggle" id="mobile-menu">
+                    <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
@@ -41,9 +43,9 @@
                 <h5>SPOTLIGHTCENTRAL</h5>
                 <ul>
                     {% block sidebar %}
-                    <p>
+                    <li>
                         <a href="{% url "spotlightcentral:post_feed" %}">Subscribe to my RSS feed</a>
-                    </p>
+                    </li>
                     <h6>HOT GIST</h6>
                     {% show_hot_gist 4 %}
                     <h6>Most commented posts</h6>

@@ -19,8 +19,8 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
-    title = models.CharField(max_length=250, unique=True)
-    slug = models.SlugField(max_length=250, unique_for_date='publish')
+    title = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=255, unique_for_date='publish', unique=True)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -34,9 +34,14 @@ class Post(models.Model):
     objects = models.Manager()       #default manager
     published = PublishedManager()   #my custom manager
     tags = TaggableManager()
+    source = models.URLField(blank=True, null=True)
+    image = models.ImageField(max_length=500, upload_to='images/', blank=True, null=True)
+
+    objects = models.Manager()       #default manager
+    published = PublishedManager()   #my custom manager
 
     class Meta:
-        ordering = ['-publish']
+        ordering = ['-created']
         # this is the index option to improve performance for query filtering or ordering results by this field
 
         indexes = [
