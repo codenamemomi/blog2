@@ -45,17 +45,20 @@ class Command(BaseCommand):
             image = article['multimedia'][0]['url'] if article['multimedia'] else None  # Assuming 'multimedia' contains images
 
             if not Post.objects.filter(slug=slug).exists():
-                post = Post.objects.create(
-                    title=title,
-                    slug=slug,
-                    body=content,
-                    author_id=1,  # Assuming a default author ID
-                    status=Post.Status.PUBLISHED,
-                    source=source,
-                    image=image  # Add this line
-                )
-                post.tags.add(*tags)  # Add tags to the post
-                self.stdout.write(self.style.SUCCESS(f'Successfully added NYT post: {title}'))
+                if content:  # Check if content is not empty
+                    post = Post.objects.create(
+                        title=title,
+                        slug=slug,
+                        body=content,
+                        author_id=1,  # Assuming a default author ID
+                        status=Post.Status.PUBLISHED,
+                        source=source,
+                        image=image
+                    )
+                    post.tags.add(*tags)  # Add tags to the post
+                    self.stdout.write(self.style.SUCCESS(f'Successfully added NYT post: {title}'))
+                else:
+                    self.stdout.write(self.style.WARNING(f'Skipped NYT post due to missing content: {title}'))
 
     def fetch_newsapi_news(self):
         api_key = config('NEWS_API_KEY')
@@ -91,14 +94,17 @@ class Command(BaseCommand):
             image = article['urlToImage']  # Assuming 'urlToImage' contains the image URL
 
             if not Post.objects.filter(slug=slug).exists():
-                post = Post.objects.create(
-                    title=title,
-                    slug=slug,
-                    body=content,
-                    author_id=1,  # Assuming a default author ID
-                    status=Post.Status.PUBLISHED,
-                    source=source,
-                    image=image  # Add this line
-                )
-                post.tags.add(*tags)  # Add tags to the post
-                self.stdout.write(self.style.SUCCESS(f'Successfully added NewsAPI post: {title}'))
+                if content:  # Check if content is not empty
+                    post = Post.objects.create(
+                        title=title,
+                        slug=slug,
+                        body=content,
+                        author_id=1,  # Assuming a default author ID
+                        status=Post.Status.PUBLISHED,
+                        source=source,
+                        image=image
+                    )
+                    post.tags.add(*tags)  # Add tags to the post
+                    self.stdout.write(self.style.SUCCESS(f'Successfully added NewsAPI post: {title}'))
+                else:
+                    self.stdout.write(self.style.WARNING(f'Skipped NewsAPI post due to missing content: {title}'))

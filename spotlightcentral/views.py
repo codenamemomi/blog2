@@ -118,3 +118,7 @@ def post_comment(request, post_id):
         request, 'spotlightcentral/post/share.html',
         {'post': post, 'form': form, 'comment': comment}
     )
+
+def news_list(request):
+    news_posts = Post.objects.filter(source='news')  # Assuming 'source' is used to identify news posts
+    return render(request, 'spotlightcentral/post/news_list.html', {'news_posts': news_posts})

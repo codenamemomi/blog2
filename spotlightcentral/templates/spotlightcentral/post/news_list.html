@@ -1,0 +1,17 @@
+{% extends "spotlightcentral/base.html" %}
+
+{% block title %}News Articles{% endblock %}
+
+{% block content %}
+    <h1>Latest News Articles</h1>
+    <ul>
+        {% for post in news_posts %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <p>{{ post.body|truncatewords:30 }}</p>
+            </li>
+        {% empty %}
+            <li>No news articles found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
