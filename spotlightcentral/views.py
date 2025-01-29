@@ -28,7 +28,7 @@ def post_list(request, tag_slug=None):
     except (PageNotAnInteger, EmptyPage):
         posts = paginator.page(1 if isinstance(page_number, int) else paginator.num_pages)
 
-    return render(request, 'spotlightcentral/post/list.html', {'posts': posts, 'tag': tag})
+    return render(request, 'spotlightcentral/post/list.html', {'posts': posts, 'tag': tag, 'tags': Tag.objects.all()})
 
 def post_details(request, year, month, day, slug):
     post = get_object_or_404(Post, status=Post.Status.PUBLISHED, 
