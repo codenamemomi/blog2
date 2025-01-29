@@ -229,7 +229,7 @@ p.date {
         width: 100%; /* Full width on small screens */
         height: auto;
         position: relative;
-        float: none;
+        top: auto;
         border-left: none;
         border-bottom: 3px solid #005b99; /* Add bottom border */
     }
@@ -253,6 +253,18 @@ p.date {
 
     h3, h4, h5, h6 {
         font-size: 18px; /* Adjust other headings for smaller screens */
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%; /* Full width for mobile */
+        background-color: #444; /* Darker background for better contrast */
+    }
+
+    .menu a {
+        padding: 10px; /* Adjust padding for mobile */
+        text-align: center; /* Center text for mobile */
     }
 }
 
@@ -725,5 +737,17 @@ nav {
 
     h3, h4, h5, h6 {
         font-size: 18px; /* Adjust other headings for smaller screens */
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%; /* Full width for mobile */
+        background-color: #444; /* Darker background for better contrast */
+    }
+
+    .menu a {
+        padding: 10px; /* Adjust padding for mobile */
+        text-align: center; /* Center text for mobile */
     }
 }
