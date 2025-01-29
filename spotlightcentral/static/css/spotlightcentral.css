@@ -201,35 +201,13 @@ p.date {
     transition: margin-right 0.3s ease; /* Smooth transition */
 }
 
-/* Post List */
-.post {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.post-title a {
-    color: #007acc;
-    text-decoration: none;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     #sidebar {
         width: 100%; /* Full width on small screens */
         height: auto;
         position: relative;
-        top: auto;
+        float: none;
         border-left: none;
         border-bottom: 3px solid #005b99; /* Add bottom border */
     }
@@ -238,33 +216,111 @@ p.date {
         width: 100%; /* Full width on small screens */
         margin-right: 0;
     }
+}
 
-    body {
-        font-size: 14px; /* Adjust font size for smaller screens */
+/* Interactive Links */
+a {
+    color: #007acc; /* Blue color for links */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    font-weight: bold;
+    position: relative;
+}
+
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007acc;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Interactive Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005b99;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+/* Interactive Cards */
+.card {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms */
+label {
+    float: left;
+    clear: both;
+    color: #333;
+    margin-bottom: 2px;
+    display: block;
+    font-weight: bold; /* Make label text bold */
+}
+
+input, textarea {
+    clear: both;
+    float: left;
+    margin: 0 0 10px;
+    background: #e3f2fd; /* Light blue background for input fields */
+    border: 1px solid #ccc; /* Light gray border for input fields */
+    padding: 10px; /* Increase padding for input fields */
+    border-radius: 5px; /* Rounded corners for input fields */
+    display: block; /* Make input fields block-level elements */
+    width: 100%; /* Set width of input fields to 100% */
+}
+
+input:focus, textarea:focus {
+    background: #e6e6fa; /* Lavender background on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow on focus */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content {
+        width: 100%;
+        padding: 0;
     }
-
-    h1 {
-        font-size: 30px; /* Adjust heading size for smaller screens */
-    }
-
-    h2 {
-        font-size: 20px; /* Adjust subheading size for smaller screens */
-    }
-
-    h3, h4, h5, h6 {
-        font-size: 18px; /* Adjust other headings for smaller screens */
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%; /* Full width for mobile */
-        background-color: #444; /* Darker background for better contrast */
-    }
-
-    .menu a {
-        padding: 10px; /* Adjust padding for mobile */
-        text-align: center; /* Center text for mobile */
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: auto;
+        border-left: none;
     }
 }
 
@@ -428,96 +484,6 @@ input[type="submit"]:focus {
     transform: translateY(0);
 }
 
-/* Interactive Links */
-a {
-    color: #007acc; /* Blue color for links */
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    display: inline-block;
-    font-weight: bold;
-    position: relative;
-}
-
-a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #007acc;
-    bottom: -2px;
-    left: 0;
-    transition: width 0.3s ease;
-}
-
-a:hover::after {
-    width: 100%;
-}
-
-/* Interactive Buttons */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-    background-color: #005b99;
-    transform: translateY(-2px);
-}
-
-.button:active {
-    transform: translateY(0);
-}
-
-/* Interactive Cards */
-.card {
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Forms */
-label {
-    float: left;
-    clear: both;
-    color: #333;
-    margin-bottom: 2px;
-    display: block;
-    font-weight: bold; /* Make label text bold */
-}
-
-input, textarea {
-    clear: both;
-    float: left;
-    margin: 0 0 10px;
-    background: #e3f2fd; /* Light blue background for input fields */
-    border: 1px solid #ccc; /* Light gray border for input fields */
-    padding: 10px; /* Increase padding for input fields */
-    border-radius: 5px; /* Rounded corners for input fields */
-    display: block; /* Make input fields block-level elements */
-    width: 100%; /* Set width of input fields to 100% */
-}
-
-input:focus, textarea:focus {
-    background: #e6e6fa; /* Lavender background on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow on focus */
-}
-
 /* Responsive Design for Comments */
 @media (max-width: 768px) {
     .comments {
@@ -634,10 +600,33 @@ nav {
     text-decoration: none;
     font-size: 18px;
     padding: 10px 15px;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .menu a:hover {
+    color: #ff6347; /* Tomato color on hover */
+    background-color: #444; /* Darker background on hover */
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
     background-color: #444;
 }
 
@@ -668,6 +657,15 @@ nav {
 
     .menu a:hover {
         background-color: #555; /* Slightly lighter background on hover */
+    }
+
+    .dropdown {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown a {
+        padding: 10px;
     }
 }
 
@@ -708,46 +706,30 @@ nav {
     transition: color 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #sidebar {
-        width: 100%; /* Full width on small screens */
-        height: auto;
-        position: relative;
-        top: auto;
-        border-left: none;
-    }
 
-    .main-content {
-        width: 100%; /* Full width on small screens */
-        margin-right: 0;
-    }
-
-    body {
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    h1 {
-        font-size: 30px; /* Adjust heading size for smaller screens */
-    }
-
-    h2 {
-        font-size: 20px; /* Adjust subheading size for smaller screens */
-    }
-
-    h3, h4, h5, h6 {
-        font-size: 18px; /* Adjust other headings for smaller screens */
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column; /* Stack menu items vertically */
-        width: 100%; /* Full width for mobile */
-        background-color: #444; /* Darker background for better contrast */
-    }
-
-    .menu a {
-        padding: 10px; /* Adjust padding for mobile */
-        text-align: center; /* Center text for mobile */
-    }
+.tags {
+    font-size: 14px;
 }
+.tags a {
+    color: #007acc5f;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.tags a:hover {
+    color: #005b99;
+}
+
+.read-more {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: #005b99;
+    transform: translateY(-2px);
+}
+
