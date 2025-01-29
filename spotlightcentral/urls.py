@@ -10,5 +10,6 @@ urlpatterns = [
     path('feed/', LatestPostFeed(), name='post_feed'),
     path('<int:year>/<int:month>/<int:day>/<slug:slug>/', views.post_details, name='post_detail'),
     path('share/<int:post_id>/', views.post_share, name='post_share'),
+    path('comment/<int:post_id>/', views.post_comment, name='post_comment')
     # ... other URL patterns
 ]
