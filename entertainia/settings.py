@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://entertainia-jg79.onrender.com/']
+ALLOWED_HOSTS = ['entertainia-jg79.onrender.com']  # Updated ALLOWED_HOSTS
 
 SITE_ID = 1
 # Application definition
