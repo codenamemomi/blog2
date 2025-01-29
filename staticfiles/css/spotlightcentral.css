@@ -1,0 +1,735 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', sans-serif;
+    box-sizing: border-box;
+    background-color: #ffffff; /* White background for a clean look */
+    color: #333; /* Darker text color for readability */
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+p1 {
+    font-size: 12px;
+    font-style: oblique;
+    color: rgba(0, 0, 0, 0.5); /* Light gray for less important text */
+}
+
+p {
+    font-size: 17px;
+    font-style: inherit;
+    color: #333;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
+    color: #007acc; /* Blue color for headings */
+    font-weight: normal;
+    margin: 30px 0 10px;
+}
+
+h1 {
+    font-size: 55px; /* Set font size for headings */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: 'Helvetica', sans-serif; /* Set font family for headings */
+    color: #007acc; /* Blue color for headings */
+    font-weight: normal;
+    margin: 10px 0 1px;
+}
+
+h2 {
+    font-size: 24px; /* Set font size for subheadings */
+    font-style: italic;
+}
+
+h3 {
+    font-size: 19px; /* Set font size for subheadings */
+    font-style: italic;
+    text-decoration: overline;
+}
+
+h4 {
+    font-size: 19px; /* Set font size for subheadings */
+    font-style: italic;
+    text-decoration: underline;
+}
+
+h5 {
+    font-size: 29px; /* Set font size for headings */
+    color: #333;
+    font-style: oblique;
+    border-bottom: 2px solid #007acc; /* Blue color for border */
+    padding: 0 0 10px 0;
+    margin-bottom: 20px;
+}
+
+h6 {
+    font-size: 22px; /* Set font size for headings */
+    color: #333;
+    font-style: oblique;
+    border-bottom: 2px solid #007acc; /* Blue color for border */
+    padding: 0 0 10px 0;
+}
+
+p.date {
+    color: #007acc;
+    font-family: 'Georgia', serif;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block; /* Make date paragraph a block-level element */
+}
+
+.left {
+    float: none;
+    margin-right: 10px;
+    display: inline-block; /* Make left-aligned elements inline-block */
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.step-links {
+    margin-right: 20px;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.pagination a {
+    color: #007acc;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 5px;
+}
+
+.pagination a:hover {
+    background-color: #005b99;
+    color: #fff;
+}
+
+.pagination .current-page {
+    font-weight: bold;
+    color: #007acc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    background-color: #e0e0e0;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination .ellipsis {
+    padding: 5px 10px;
+    color: #999;
+}
+
+#content {
+    float: left;
+    width: 60%;
+    padding: 20px; /* Add padding to content */
+    overflow: hidden;
+    display: flex; /* Make content container a flex container */
+    flex-direction: column; /* Set flex direction to column */
+}
+
+/* Sidebar Styles */
+#sidebar {
+    float: right;
+    width: 35%;
+    padding: 20px;
+    background: #007acc; /* Blue background */
+    height: 200vh;
+    position: sticky;
+    top: 0;
+    border-left: 3px solid #005b99; /* Darker blue border */
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+/* Sidebar Links */
+#sidebar a {
+    color: #fff; /* White text for contrast */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#sidebar a:hover {
+    background-color: #005b99; /* Darker blue on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Sidebar Header */
+#sidebar .sidebar-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Main Content Area */
+.main-content {
+    width: 70%; /* Adjust for sidebar width */
+    padding: 20px;
+    transition: margin-right 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* Full width on small screens */
+        height: auto;
+        position: relative;
+        float: none;
+        border-left: none;
+        border-bottom: 3px solid #005b99; /* Add bottom border */
+    }
+
+    .main-content {
+        width: 100%; /* Full width on small screens */
+        margin-right: 0;
+    }
+}
+
+/* Interactive Links */
+a {
+    color: #007acc; /* Blue color for links */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    font-weight: bold;
+    position: relative;
+}
+
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #007acc;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Interactive Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005b99;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+/* Interactive Cards */
+.card {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms */
+label {
+    float: left;
+    clear: both;
+    color: #333;
+    margin-bottom: 2px;
+    display: block;
+    font-weight: bold; /* Make label text bold */
+}
+
+input, textarea {
+    clear: both;
+    float: left;
+    margin: 0 0 10px;
+    background: #e3f2fd; /* Light blue background for input fields */
+    border: 1px solid #ccc; /* Light gray border for input fields */
+    padding: 10px; /* Increase padding for input fields */
+    border-radius: 5px; /* Rounded corners for input fields */
+    display: block; /* Make input fields block-level elements */
+    width: 100%; /* Set width of input fields to 100% */
+}
+
+input:focus, textarea:focus {
+    background: #e6e6fa; /* Lavender background on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow on focus */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content {
+        width: 100%;
+        padding: 0;
+    }
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: auto;
+        border-left: none;
+    }
+}
+
+/* Accessibility */
+*:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fade-in 1s ease-in-out;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline-block */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 12px; /* Rounded corners */
+    transition-duration: 0.4s; /* Transition effects */
+}
+
+input[type="submit"]:hover {
+    background-color: #81c784; /* Light green background on hover */
+    color: black; /* Black text on hover */
+    border: 2px solid #81c784; /* Light green border on hover */
+}
+
+input[type="submit"]:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Comments Section */
+.comments {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px; /* Add padding to comments */
+    border: 1px solid #ddd; /* Light gray border for comments */
+    border-radius: 10px; /* Rounded corners for comments */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow to comments */
+    margin-bottom: 30px; /* Add margin below the comments section */
+}
+
+/* Individual Comment */
+.comment {
+    margin-bottom: 20px; /* Add margin to individual comments */
+    padding: 15px; /* Add padding to individual comments */
+    border-bottom: 1px solid #ddd; /* Light gray border for individual comments */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    border-radius: 5px; /* Rounded corners for individual comments */
+}
+
+.comment:hover {
+    background-color: #f0f8ff; /* Light blue background on hover */
+}
+
+/* Comment Author */
+.comment-author {
+    font-weight: bold; /* Make comment author bold */
+    color: #007acc; /* Blue color for comment author */
+    font-size: 16px; /* Set font size for comment author */
+    margin-bottom: 5px; /* Add margin below the author */
+}
+
+/* Comment Date */
+.comment-date {
+    font-size: 12px; /* Set font size for comment date */
+    color: #8b0000; /* Dark red color for comment date */
+    font-style: italic; /* Make comment date italic */
+    margin-bottom: 10px; /* Add margin below the date */
+}
+
+/* Comment Text */
+.comment-text {
+    font-size: 14px; /* Set font size for comment text */
+    color: #333; /* Dark text color for comment text */
+    line-height: 1.5; /* Improve readability with line height */
+}
+
+/* Comment Section */
+.comment-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Success Message */
+.success-message {
+    color: #4CAF50;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Back Link */
+.back-link {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #005b99;
+}
+
+/* Comment Form Container */
+.comment-form-container {
+    margin-top: 20px;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form h2 {
+    font-size: 24px;
+    color: #007acc;
+    margin-bottom: 20px;
+}
+
+.comment-form input[type="submit"] {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comment-form input[type="submit"]:hover {
+    background-color: #005b99;
+    transform: translateY(-2px);
+}
+
+.comment-form input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for Comments */
+@media (max-width: 768px) {
+    .comments {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .comment {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .comment-author {
+        font-size: 14px; /* Reduce font size on smaller screens */
+    }
+
+    .comment-text {
+        font-size: 12px; /* Reduce font size on smaller screens */
+    }
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #333; /* Dark background for header */
+    color: #fff;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #333; /* Dark background for the logo */
+    color: #fff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.logo h1 {
+    font-size: 36px; /* Adjust font size as needed */
+    font-weight: bold;
+    margin: 0;
+    color: #ff6347; /* Tomato color for the logo text */
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ff6347; /* Tomato color on hover */
+    background-color: #444; /* Darker background on hover */
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover .bar {
+    background-color: #ff6347; /* Tomato color for hover effect */
+}
+
+/* Enhanced Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li:hover .dropdown {
+    display: block;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ff6347; /* Tomato color on hover */
+    background-color: #444; /* Darker background on hover */
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+    background-color: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #444; /* Darker background for better contrast */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .menu a:hover {
+        background-color: #555; /* Slightly lighter background on hover */
+    }
+
+    .dropdown {
+        position: static;
+        box-shadow: none;
+    }
+
+    .dropdown a {
+        padding: 10px;
+    }
+}
+
+/* Container Class */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Container Class */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Post List */
+.post {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-title a {
+    color: #007acc;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+
+.tags {
+    font-size: 14px;
+}
+.tags a {
+    color: #007acc5f;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.tags a:hover {
+    color: #005b99;
+}
+
+.read-more {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more:hover {
+    color: #005b99;
+    transform: translateY(-2px);
+}
+
