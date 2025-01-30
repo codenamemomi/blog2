@@ -5,6 +5,7 @@
     <head>
         <title>{% block title %}Spotlight Central{% endblock %}</title>
         <link href="{% static 'css/spotlightcentral.css' %}" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Spotlight Central">
@@ -19,20 +20,30 @@
                 <div class="logo">
                     <h1>ENTERTAINIA</h1>
                 </div>
-                <nav>
-                    <ul class="menu">
+                
+                <nav class="navbar" id="nav">
+                    
+                    <ul class="menu" id="menulist">
+                        <div class="cancel" id="close">
+                            <i class='bx bx-x-circle'></i>
+                        </div>
                         <li><a href="/">Home</a></li>
                         <li><a href="#">Highlights</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="/sitemap.xml">Sitemap</a></li>
                     </ul>
-                    <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
                 </nav>
+
+                <div class="navlist">
+                    <i class='bx bx-menu' id="menu"></i>
+                </div>
+
+                <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </header>
 
@@ -70,12 +81,18 @@
 
         <!-- JavaScript for Mobile Menu Toggle -->
         <script>
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navMenu = document.querySelector('.menu');
+            const home = document.getElementById('menu');
+            const homeList = document.getElementById('nav');
+            const cancel = document.querySelector('.bx-x-circle');
+            const navMenu = document.querySelector('');
 
             mobileMenu.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
+                menuList.style.display = "flex"
             });
+            function cancelMenu() {
+                menuList.style.display = "none"
+            }
+            cancel.addEventListener('click', cancelMenu);
         </script>
     </body>
 </html>
