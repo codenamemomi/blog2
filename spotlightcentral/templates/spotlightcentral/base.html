@@ -84,13 +84,13 @@
             const home = document.getElementById('menu');
             const homeList = document.getElementById('nav');
             const cancel = document.querySelector('.bx-x-circle');
-            const navMenu = document.querySelector('');
+            const mini = document.querySelector('.menu-toggle');
 
             mobileMenu.addEventListener('Onclick', () => {
-                menuList.style.display = "flex"
+                homeList.style.display = "flex"
             });
             function cancelMenu() {
-                menuList.style.display = "none"
+                homeList.style.display = "none"
             }
             cancel.addEventListener('Onclick', cancelMenu);
         </script>
