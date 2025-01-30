@@ -27,6 +27,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['entertainia-jg79.onrender.com']  # Updated ALLOWED_HOSTS
+# ALLOWED_HOSTS = [] 
+
 
 SITE_ID = 1
 # Application definition

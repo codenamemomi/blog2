@@ -641,6 +641,7 @@ nav {
         top: 60px;
         left: 0;
         transition: all 0.3s ease;
+        z-index: 100;
     }
 
     .menu.active {
@@ -733,3 +734,18 @@ nav {
     transform: translateY(-2px);
 }
 
+#menulist{
+    list-style: none;
+    display: flex;
+    font-weight: 400;
+    font-size: 30px;
+    
+}
+
+#menu{
+    list-style: none;
+    display: flex;
+    font-weight: 400;
+    font-size: 30px;
+    
+}

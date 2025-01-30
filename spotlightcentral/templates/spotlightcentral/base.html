@@ -48,7 +48,12 @@
         </header>
 
         <!-- Main Content and Sidebar Container -->
-        <div class="container main-container">
+        <div class="main-container">
+            <!-- Main Content -->
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+
             <!-- Sidebar -->
             <aside id="sidebar">
                 <h5>SPOTLIGHTCENTRAL</h5>
@@ -72,11 +77,6 @@
                 </ul>
                 <p>&copy; 2023 Spotlight Central</p>
             </aside>
-
-            <!-- Main Content -->
-            <div id="content">
-                {% block content %}{% endblock %}
-            </div>
         </div>
 
         <!-- JavaScript for Mobile Menu Toggle -->
@@ -86,13 +86,14 @@
             const cancel = document.querySelector('.bx-x-circle');
             const mini = document.querySelector('.menu-toggle');
 
-            mobileMenu.addEventListener('Onclick', () => {
+            home.addEventListener('click', () => {
+                console.log('mobile menu clicked')
                 homeList.style.display = "flex"
             });
             function cancelMenu() {
                 homeList.style.display = "none"
             }
-            cancel.addEventListener('Onclick', cancelMenu);
+            cancel.addEventListener('click', cancelMenu);
         </script>
     </body>
 </html>
